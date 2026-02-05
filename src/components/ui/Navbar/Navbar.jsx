@@ -14,8 +14,9 @@ import {
   Typography,
   useScrollTrigger,
   Link,
+  Divider,
 } from '@mui/material';
-import { ICONS, TOP_LISTS } from '../../../constants';
+import { ICONS, TOP_LISTS, MOVIE_LISTS } from '../../../constants';
 import { Link as RouterLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import React, { useState } from 'react';
@@ -43,6 +44,24 @@ export default function Navbar() {
               <Box sx={{ width: 250 }} onClick={handleDrawerToggle}>
                 <List>
                   {TOP_LISTS.map(item => {
+                    const IconComponent = ICONS[item.icon];
+                    return (
+                      <Link component={RouterLink} to={item.url} key={item.url}>
+                        <ListItem disablePadding>
+                          <ListItemButton sx={{ textAlign: 'center' }}>
+                            <ListItemIcon>
+                              <IconComponent />
+                            </ListItemIcon>
+                            <ListItemText primary={item.title} />
+                          </ListItemButton>
+                        </ListItem>
+                      </Link>
+                    );
+                  })}
+                </List>
+                <Divider />
+                <List>
+                  {MOVIE_LISTS.map(item => {
                     const IconComponent = ICONS[item.icon];
                     return (
                       <Link component={RouterLink} to={item.url} key={item.url}>

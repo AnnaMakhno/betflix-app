@@ -1,9 +1,12 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import React from 'react';
 
+import { MOVIE_LISTS, TOP_LISTS } from '../constants.js';
+import MoviesListMain from './pages/MoviesListMain';
+import MoviesListTop from './pages/MoviesListTop';
 import MoviesDetails from './pages/MovieDetails';
 import ActorDetails from './pages/ActorDetails';
-import MoviesPage from './pages/Movies';
+import Movies from './pages/Movies';
 import Layout from './Layout.jsx';
 
 function App() {
@@ -14,8 +17,16 @@ function App() {
       children: [
         {
           path: '/',
-          element: <MoviesPage />,
+          element: <Movies />,
         },
+        ...TOP_LISTS.map(el => ({
+          path: el.url,
+          element: <MoviesListTop />,
+        })),
+        ...MOVIE_LISTS.map(el => ({
+          path: el.url,
+          element: <MoviesListMain />,
+        })),
         {
           path: '/movie/:id',
           element: <MoviesDetails />,
