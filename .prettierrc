@@ -9,5 +9,16 @@
   "arrowParens": "avoid",
   "endOfLine": "lf",
 
-  "plugins": ["./node_modules/prettier-plugin-sort-imports/dist/index.js"]
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^@core/(.*)$",
+    "",
+    "^@server/(.*)$",
+    "",
+    "^@ui/(.*)$",
+    "",
+    "^[./]"
+  ],
+  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+  "importOrderTypeScriptVersion": "5.0.0"
 }

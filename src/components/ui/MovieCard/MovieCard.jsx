@@ -1,6 +1,6 @@
-import { Stack, Link, Typography, Tooltip, Rating, Box } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Box, Link, Rating, Stack, Tooltip } from '@mui/material';
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
 import styles from './ModuleCard.module.css';
 

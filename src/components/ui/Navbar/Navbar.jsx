@@ -1,9 +1,12 @@
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
   Container,
+  Divider,
   Drawer,
   IconButton,
+  Link,
   List,
   ListItem,
   ListItemButton,
@@ -13,13 +16,11 @@ import {
   Toolbar,
   Typography,
   useScrollTrigger,
-  Link,
-  Divider,
 } from '@mui/material';
-import { ICONS, TOP_LISTS, MOVIE_LISTS } from '../../../constants';
-import { Link as RouterLink } from 'react-router-dom';
-import MenuIcon from '@mui/icons-material/Menu';
 import React, { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+
+import { ICONS, MOVIE_LISTS, TOP_LISTS } from '../../../constants';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

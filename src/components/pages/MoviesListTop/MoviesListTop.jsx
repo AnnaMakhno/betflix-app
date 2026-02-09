@@ -1,21 +1,26 @@
-import { useGetFilmsTopQuery } from '../../../services/kinopoiskApi';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Button, Stack, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import { TOP_LISTS } from '../../../constants';
-import { useNavigate } from 'react-router-dom';
+import { useGetFilmsTopQuery } from '../../../services/kinopoiskApi';
 import MoviesList from '../../ui/MovieList';
-import React, { use } from 'react';
 
 export default function MoviesListTop() {
+  const location = useLocation();
   const [page, setPage] = React.useState(1);
   const navigate = useNavigate();
-
-  const movieType = TOP_LISTS.find(el => el.url === window.location.pathname);
+  const movieType = TOP_LISTS.find(el => el.url === location.pathname);
 
   const { data, error, isLoading } = useGetFilmsTopQuery({
     type: movieType.value,
     page: page,
   });
+
+  useEffect(() => {
+    setPage(1);
+  }, [location]);
 
   if (error) {
     return <div>Ошибка при загрузке данных</div>;

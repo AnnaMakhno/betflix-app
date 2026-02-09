@@ -1,16 +1,16 @@
 import {
   AutoAwesome,
-  StarPurple500,
-  FamilyRestroom,
-  VolunteerActivism,
   Bloodtype,
+  FamilyRestroom,
+  Fort,
+  LiveTv,
+  LocalMovies,
   MenuBook,
   MoodBad,
   Pool,
-  LiveTv,
-  LocalMovies,
   Reorder,
-  Fort,
+  StarPurple500,
+  VolunteerActivism,
 } from '@mui/icons-material';
 
 export const ICONS = {
